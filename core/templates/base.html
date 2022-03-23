@@ -41,6 +41,16 @@
                 </div>
             </div>
         </header>
+        <!-- Flash Messages Starts-->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+        <!-- Flash Messages Ends-->
+
         <!-- Page content-->
         {% block content %}
           
