@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load tailwind_filters %}
 {% block content %}
   <div class="container">
-    <form method="post">
+    <form class="form-control m-3" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-    </form>
+        <div class="form-group">
+          {{ form|crispy  }}
+        </div>
+        <button type="submit" class="btn btn-primary m-1">Register</button>
+      </form>
   </div>
-{% endblock content %}<form action="" method="post"></form>
+{% endblock content %}
