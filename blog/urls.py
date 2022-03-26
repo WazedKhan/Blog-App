@@ -13,6 +13,6 @@ urlpatterns = [
     
     # API urls 
     
-    path('posts/', include('rest_framework.urls')),
+    path('posts/', include('postApi.urls')),
 
 ]
