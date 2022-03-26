@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # form design
     'crispy_forms',
     'crispy_tailwind',
+    # Rest Freamworks For API
 ]
 
 MIDDLEWARE = [
@@ -93,6 +94,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
+
+# REST_FRAMEWORK
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 LANGUAGE_CODE = 'en-us'
 
