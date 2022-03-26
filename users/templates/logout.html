@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+{% block content %}
+<div class="container">
+    <h2>You have been login!</h2>
+    <hr>
+    <a class="card-title" href=" {% url 'login' %} ">Login again</a>
+    
+</div>
+{% endblock content %}
