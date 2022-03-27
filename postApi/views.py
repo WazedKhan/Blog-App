@@ -8,5 +8,5 @@ def home(request):
     model_data = Post.objects.all().first()
     data = {}
     if model_data:
-        data = model_to_dict(model_data, fields=['id','title','content'])
+        data = model_to_dict(model_data, fields=['id','title','content','greetings'])
     return Response(data)
