@@ -1,7 +1,8 @@
-from re import template
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path,include
 from users import views as user_views
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 
 urlpatterns = [
@@ -15,4 +16,7 @@ urlpatterns = [
     
     path('posts/', include('postApi.urls')),
 
-]
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
