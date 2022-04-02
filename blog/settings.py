@@ -29,8 +29,10 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
     # form design
+    
     'crispy_forms',
     'crispy_tailwind',
+    
     # Rest Freamworks For API
     'rest_framework',
     'postApi'
