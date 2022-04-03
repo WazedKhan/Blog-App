@@ -1,3 +1,4 @@
+from re import template
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -20,6 +21,7 @@ class PostListView(ListView):
     
 class PostDetailView(DetailView):
     model = Post
+    template_name = 'post_detail.html'
     
     
 def about(request):
