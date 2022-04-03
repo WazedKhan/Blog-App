@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load tailwind_filters %}
 {% block content %}
      <!-- Page Header-->
      <header class="page-header-ui page-header-ui-light bg-white mt-5">
@@ -7,7 +8,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-xl-8 col-lg-10 text-center">
                         <img class="mb-4" src=" {{ user.profile.image.url }} " style="width: 15rem" />
-                        <h1 class="page-header-ui-title">Welcome to my portfolio!</h1>
+                        <h1 class="page-header-ui-title">Welcome to {{ user.username }}'s portfolio!</h1>
                         <p class="page-header-ui-text">I am a graphic artist, illustrator, and UI designer specializing in modern, creative design based in Wildemount, TX</p>
                     </div>
                 </div>
@@ -18,6 +19,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
         </div>
     </header>
+
+   
+
     <section class="bg-light py-10">
         <div class="container px-5">
             <div class="row gx-5 text-center">
@@ -43,6 +47,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
         </div>
     </section>
+
+    <!-- forms Starts -->
+    <div class="container px-5">
+        <form class="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group m-1">
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+    </div>
+    <!-- forms ends -->
+
     <section class="bg-white py-10">
         <div class="container px-5">
             <div class="row gx-5">
@@ -95,5 +113,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
         </div>
     </section>
+    
 {% endblock content %}
 
