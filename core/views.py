@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import Post
 
@@ -25,6 +25,17 @@ class PostDetailView(DetailView):
     
 
 class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title','content']
+    template_name = 'create.html'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+    
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['title','content']
     template_name = 'create.html'
