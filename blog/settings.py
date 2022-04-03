@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     
     'crispy_forms',
     'crispy_tailwind',
+    'widget_tweaks',
     
     # Rest Freamworks For API
     'rest_framework',

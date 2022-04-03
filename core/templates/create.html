@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
+{% load widget_tweaks %}
 {% block content %}
     <div class="container px-5">
         <div class="content-section">
+            <h1>Create New Blog</h1> <hr>
             <form method="POST">
                 {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Blog Post</legend>
-                    {{ form|crispy }}
-                </fieldset>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  {% render_field form.title class+="form-control" %}
+                </div>
+                <div class="form-group">
+                  <label for="title">Content</label>
+                  {% render_field form.content class+="form-control" %}
+                </div>
                 <div class="form-group">
                     <button class="btn btn-outline-info" type="submit">Post</button>
                 </div>

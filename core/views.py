@@ -1,6 +1,5 @@
-from pyexpat import model
-from re import template
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 
 from .models import Post
@@ -25,7 +24,7 @@ class PostDetailView(DetailView):
     template_name = 'post_detail.html'
     
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title','content']
     template_name = 'create.html'
